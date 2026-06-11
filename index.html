@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>シャー猫ハウス｜尾道の保護猫カフェ</title>
+<meta name="description" content="広島県尾道市の保護猫カフェ「シャー猫ハウス」。猫たちとのんびり過ごせるカフェです。飼い主さん募集中。毎週月曜は猫ヨガも開催。">
+<style>
+  :root {
+    --ink: #3a3a3a;
+    --sub: #767676;
+    --accent: #c98a5b;
+    --accent-dark: #a96f44;
+    --line: #e8e4df;
+    --bg-soft: #faf8f5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* header */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; max-width: 880px; margin: 0 auto;
+  }
+  .logo { font-weight: 700; font-size: 1.05rem; }
+  .logo span { color: var(--accent); }
+  nav a {
+    text-decoration: none; color: var(--sub); font-size: 0.85rem; margin-left: 18px;
+  }
+  nav a:hover { color: var(--accent-dark); }
+  @media (max-width: 640px) { nav { display: none; } }
+
+  /* hero */
+  .hero { text-align: center; padding: 80px 24px 60px; }
+  .hero .cat { font-size: 2.6rem; }
+  .hero h1 { font-size: 2rem; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.12em; }
+  .hero .en { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; }
+  .hero p.lead { margin-top: 26px; color: var(--sub); font-size: 0.95rem; }
+  .badge {
+    display: inline-block; margin-top: 22px;
+    background: var(--bg-soft); border: 1px solid var(--line);
+    border-radius: 999px; padding: 6px 22px; font-size: 0.85rem; color: var(--accent-dark);
+  }
+
+  /* sections */
+  section { padding: 64px 0; }
+  section.alt { background: var(--bg-soft); }
+  h2 { text-align: center; font-size: 1.3rem; letter-spacing: 0.2em; margin-bottom: 8px; }
+  .h2sub { text-align: center; color: var(--accent); font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 40px; }
+
+  /* about */
+  .about p { max-width: 640px; margin: 0 auto 1.2em; text-align: center; font-size: 0.95rem; }
+
+  /* photos */
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 640px) { .gallery { grid-template-columns: 1fr 1fr; } }
+  .ph {
+    aspect-ratio: 1 / 1; border: 1px dashed #d8d2ca; border-radius: 10px;
+    background: var(--bg-soft);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #b5aca0; font-size: 0.8rem; gap: 6px;
+  }
+  .ph .ico { font-size: 1.6rem; }
+  .gnote { text-align: center; color: var(--sub); font-size: 0.78rem; margin-top: 14px; }
+
+  /* info tables */
+  .card {
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 28px 30px; margin-bottom: 22px;
+  }
+  .card h3 {
+    font-size: 1rem; color: var(--accent-dark); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 9px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { width: 38%; font-weight: 600; color: var(--ink); }
+  tr:last-child th, tr:last-child td { border-bottom: none; }
+  .note { font-size: 0.8rem; color: var(--sub); margin-top: 10px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } }
+
+  /* yoga */
+  .yoga-msg { text-align: center; max-width: 600px; margin: 0 auto 30px; font-size: 0.95rem; }
+
+  /* rules */
+  .rules { max-width: 640px; margin: 0 auto; }
+  .rules ul { list-style: none; }
+  .rules li {
+    padding: 9px 0 9px 28px; position: relative;
+    border-bottom: 1px dashed var(--line); font-size: 0.9rem;
+  }
+  .rules li::before { content: "🐾"; position: absolute; left: 0; font-size: 0.8rem; top: 11px; }
+  .rules p.closing { text-align: center; margin-top: 24px; font-size: 0.88rem; color: var(--sub); }
+
+  /* access */
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  @media (max-width: 720px) { .access-grid { grid-template-columns: 1fr; } }
+  .map { border: 0; width: 100%; height: 280px; border-radius: 12px; }
+  .btn {
+    display: inline-block; margin-top: 18px;
+    background: var(--accent); color: #fff; text-decoration: none;
+    padding: 12px 34px; border-radius: 999px; font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  .btn:hover { background: var(--accent-dark); }
+
+  /* footer */
+  footer {
+    border-top: 1px solid var(--line); padding: 36px 24px; text-align: center;
+    color: var(--sub); font-size: 0.78rem;
+  }
+  footer .fl { font-weight: 600; color: var(--ink); font-size: 0.9rem; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">シャー猫<span>ハウス</span></div>
+    <nav>
+      <a href="#about">シャー猫ハウスとは</a>
+      <a href="#info">営業時間・料金</a>
+      <a href="#yoga">猫ヨガ</a>
+      <a href="#rules">ご利用ルール</a>
+      <a href="#access">アクセス</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="cat">🐈</div>
+  <div class="en">Cat Cafe Time</div>
+  <h1>シャー猫ハウス</h1>
+  <p class="lead">のんびり、気ままに、自由気まま。<br>広島県尾道市の保護猫カフェです。</p>
+  <div class="badge">🏠 飼い主さん募集中の猫たちがお待ちしています</div>
+</div>
+
+<section id="about" class="alt">
+  <div class="wrap about">
+    <h2>シャー猫ハウスとは</h2>
+    <div class="h2sub">About</div>
+    <p>シャー猫ハウスは、NPO法人ペットマナーおのみちが運営する保護猫カフェです。</p>
+    <p>猫たちが安心して過ごせる空間で、のんびりとした猫との時間をお楽しみいただけます。新しい家族との出会いの場として、飼い主さんを募集している猫たちも暮らしています。</p>
+    <p>気になる猫がいたら、お気軽にスタッフへお声がけください。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>フォトギャラリー</h2>
+    <div class="h2sub">Gallery</div>
+    <div class="gallery">
+      <div class="ph"><span class="ico">📷</span>写真スペース</div>
+      <div class="ph"><span class="ico">📷</span>写真スペース</div>
+      <div class="ph"><span class="ico">📷</span>写真スペース</div>
+      <div class="ph"><span class="ico">📷</span>写真スペース</div>
+      <div class="ph"><span class="ico">📷</span>写真スペース</div>
+      <div class="ph"><span class="ico">📷</span>写真スペース</div>
+    </div>
+    <p class="gnote">※お手持ちの写真に差し替えてご利用ください。最新の猫たちの様子はInstagramでご覧いただけます。</p>
+  </div>
+</section>
+
+<section id="info" class="alt">
+  <div class="wrap">
+    <h2>営業時間・料金</h2>
+    <div class="h2sub">Information</div>
+    <div class="cols">
+      <div class="card">
+        <h3>🕛 営業時間</h3>
+        <table>
+          <tr><th>金曜日</th><td>12:00～20:00</td></tr>
+          <tr><th>土・日・祝</th><td>12:00～18:00</td></tr>
+          <tr><th>定休日</th><td>月・火・水・木</td></tr>
+        </table>
+        <p class="note">※金曜日が祝日の場合は20:00まで営業<br>※店内が混み合う場合は待ち時間があります</p>
+      </div>
+      <div class="card">
+        <h3>💰 料金</h3>
+        <table>
+          <tr><th>1時間</th><td>1,500円(ワンドリンク付)</td></tr>
+          <tr><th>高校生</th><td>1,300円(ワンドリンク付)</td></tr>
+          <tr><th>中学生以下</th><td>500円<br><small>保護者同伴で時間制限なし</small></td></tr>
+          <tr><th>シニア割引<br><small>(70歳以上)</small></th><td>1,300円(ワンドリンク付)</td></tr>
+          <tr><th>延長</th><td>30分毎 500円</td></tr>
+          <tr><th>追加ドリンク</th><td>300円</td></tr>
+        </table>
+        <p class="note">※シニア割引は年齢が確認できるもののご提示をお願いします</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="yoga">
+  <div class="wrap">
+    <h2>猫ヨガ</h2>
+    <div class="h2sub">Cat Yoga</div>
+    <p class="yoga-msg">猫と一緒に、呼吸と動きをととのえる<br>やさしいヨガ時間。はじめての方も、体が硬くても大丈夫。<br>猫が近くに来たり、そっと見ていたり、自由に動き回ったり。<br>猫との時間に癒されたい方へ。1回からお気軽にご参加ください。</p>
+    <div class="card" style="max-width: 560px; margin: 0 auto;">
+      <table>
+        <tr><th>開催日時</th><td>毎週月曜日 19:30～(約1時間)</td></tr>
+        <tr><th>定員</th><td>6名</td></tr>
+        <tr><th>参加費</th><td>1,650円(税込)</td></tr>
+        <tr><th>持ち物</th><td>ヨガマット、飲み物、ブランケット(必要な方)</td></tr>
+        <tr><th>レンタルマット</th><td>あり(+150円)　※ご予約時にお伝えください</td></tr>
+        <tr><th>ご予約</th><td>要予約・InstagramのDMまたはお電話にて</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="rules" class="alt">
+  <div class="wrap rules">
+    <h2>ご利用ルール</h2>
+    <div class="h2sub">Rules</div>
+    <ul>
+      <li>小学生以下のご入店はスタッフへご確認ください</li>
+      <li>手指のアルコール消毒をお願いします</li>
+      <li>店内では靴下の着用をお願いします(靴下は店頭で販売しています)</li>
+      <li>酔った状態でのご入店はお断りしています</li>
+      <li>猫アレルギーのある方は、事前に医師へご相談ください</li>
+      <li>無理に抱っこしないでください</li>
+      <li>食事中・睡眠中の猫には触らないでください</li>
+      <li>猫を追いかけたり、独り占めしないでください</li>
+      <li>大きな声や急な動きは控えてください</li>
+      <li>許可のないおやつは与えないでください</li>
+      <li>引っかき・咬みつき等は自己責任となります</li>
+      <li>ペット同伴でのご入店はできません</li>
+      <li>写真撮影はフラッシュ・ライトの使用は禁止です</li>
+      <li>店内は禁煙です</li>
+      <li>飲食物の持ち込みはご遠慮ください</li>
+    </ul>
+    <p class="closing">猫たちが安心して過ごせる空間づくりに<br>ご理解とご協力をお願いいたします。</p>
+  </div>
+</section>
+
+<section id="access">
+  <div class="wrap">
+    <h2>アクセス</h2>
+    <div class="h2sub">Access</div>
+    <div class="access-grid">
+      <div>
+        <table>
+          <tr><th>店名</th><td>シャー猫ハウス</td></tr>
+          <tr><th>住所</th><td>広島県尾道市美ノ郷町三成869-4</td></tr>
+          <tr><th>運営</th><td>NPO法人 ペットマナーおのみち</td></tr>
+          <tr><th>お問合せ</th><td>InstagramのDMにてお気軽にどうぞ</td></tr>
+        </table>
+        <div style="text-align: center;">
+          <a class="btn" href="https://www.instagram.com/shah_neko_house/" target="_blank" rel="noopener">Instagramを見る</a>
+        </div>
+      </div>
+      <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=%E5%BA%83%E5%B3%B6%E7%9C%8C%E5%B0%BE%E9%81%93%E5%B8%82%E7%BE%8E%E3%83%8E%E9%83%B7%E7%94%BA%E4%B8%89%E6%88%90869-4&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">シャー猫ハウス</div>
+  広島県尾道市美ノ郷町三成869-4<br>
+  運営：NPO法人 ペットマナーおのみち<br><br>
+  &copy; 2026 Shah Neko House
+</footer>
+
+</body>
+</html>
