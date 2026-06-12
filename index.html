@@ -69,12 +69,10 @@
   .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   @media (max-width: 640px) { .gallery { grid-template-columns: 1fr 1fr; } }
   .ph {
-    aspect-ratio: 1 / 1; border: 1px dashed #d8d2ca; border-radius: 10px;
-    background: var(--bg-soft);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    color: #b5aca0; font-size: 0.8rem; gap: 6px;
+    aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden;
+    background: var(--bg-soft); margin: 0;
   }
-  .ph .ico { font-size: 1.6rem; }
+  .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .gnote { text-align: center; color: var(--sub); font-size: 0.78rem; margin-top: 14px; }
 
   /* info tables */
@@ -165,14 +163,14 @@
     <h2>フォトギャラリー</h2>
     <div class="h2sub">Gallery</div>
     <div class="gallery">
-      <div class="ph"><span class="ico">📷</span>写真スペース</div>
-      <div class="ph"><span class="ico">📷</span>写真スペース</div>
-      <div class="ph"><span class="ico">📷</span>写真スペース</div>
-      <div class="ph"><span class="ico">📷</span>写真スペース</div>
-      <div class="ph"><span class="ico">📷</span>写真スペース</div>
-      <div class="ph"><span class="ico">📷</span>写真スペース</div>
+      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1KESEnHK9OFrJzdFQhGMEM5OdefuP4Mu5=w1000" alt="マットの上でくつろぐ茶白の猫" loading="lazy"></figure>
+      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1GysZpFeYIroJdCXUL1y61bgMoJeTJAG8=w1000" alt="サバトラ猫の顔のアップ" loading="lazy"></figure>
+      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1l-c3-k6vSblq_Uqvx_ENF06Chks1mbrv=w1000" alt="ベッドの中で遊ぶ三毛猫" loading="lazy"></figure>
+      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1qqfLG1Nf37BdxXfrDykRTdVCkLe3rLpE=w1000" alt="ベッドでくつろぐハチワレ猫" loading="lazy"></figure>
+      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1Jb_VFdvOehKB5lJIbMI5bDpHhx2utdxy=w1000" alt="キャットホイールで遊ぶ茶トラ猫" loading="lazy"></figure>
+      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1bjUk2N-xf_1xDQaQu9Z5xVhxKXfOwWNX=w1000" alt="じゃれ合う2匹の猫" loading="lazy"></figure>
     </div>
-    <p class="gnote">※お手持ちの写真に差し替えてご利用ください。最新の猫たちの様子はInstagramでご覧いただけます。</p>
+    <p class="gnote">撮影：ぐるり様　／　最新の猫たちの様子はInstagramでご覧いただけます。</p>
   </div>
 </section>
 
