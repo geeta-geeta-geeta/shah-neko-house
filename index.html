@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>シャー猫ハウス｜尾道の保護猫カフェ</title>
-<meta name="description" content="広島県尾道市の保護猫カフェ「シャー猫ハウス」。猫たちとのんびり過ごせるカフェです。飼い主さん募集中。毎週月曜は猫ヨガも開催。">
+<meta name="description" content="広島県尾道市の保護猫カフェ「シャー猫ハウス」。売上・ご寄付は全て猫たちの医療費・飼育費に。飼い主さん募集中。毎週月曜は猫ヨガも開催。">
 <style>
   :root {
     --ink: #3a3a3a;
@@ -13,6 +13,7 @@
     --accent-dark: #a96f44;
     --line: #e8e4df;
     --bg-soft: #faf8f5;
+    --support-bg: #fff8f2;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -24,7 +25,6 @@
     letter-spacing: 0.04em;
   }
   .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
-
   /* header */
   header {
     position: sticky; top: 0; z-index: 10;
@@ -39,32 +39,33 @@
   .logo { font-weight: 700; font-size: 1.05rem; }
   .logo span { color: var(--accent); }
   nav a {
-    text-decoration: none; color: var(--sub); font-size: 0.85rem; margin-left: 18px;
+    text-decoration: none; color: var(--sub); font-size: 0.78rem; margin-left: 12px;
+    white-space: nowrap;
   }
   nav a:hover { color: var(--accent-dark); }
-  @media (max-width: 640px) { nav { display: none; } }
-
+  @media (max-width: 860px) { nav { display: none; } }
   /* hero */
   .hero { text-align: center; padding: 80px 24px 60px; }
   .hero .cat { font-size: 2.6rem; }
   .hero h1 { font-size: 2rem; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.12em; }
   .hero .en { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; }
   .hero p.lead { margin-top: 26px; color: var(--sub); font-size: 0.95rem; }
+  .hero-badges { margin-top: 22px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
   .badge {
-    display: inline-block; margin-top: 22px;
+    display: inline-block;
     background: var(--bg-soft); border: 1px solid var(--line);
     border-radius: 999px; padding: 6px 22px; font-size: 0.85rem; color: var(--accent-dark);
   }
-
+  .badge.accent-badge {
+    background: var(--accent); border-color: var(--accent); color: #fff;
+  }
   /* sections */
   section { padding: 64px 0; }
   section.alt { background: var(--bg-soft); }
   h2 { text-align: center; font-size: 1.3rem; letter-spacing: 0.2em; margin-bottom: 8px; }
   .h2sub { text-align: center; color: var(--accent); font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 40px; }
-
   /* about */
   .about p { max-width: 640px; margin: 0 auto 1.2em; text-align: center; font-size: 0.95rem; }
-
   /* photos */
   .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
   @media (max-width: 640px) { .gallery { grid-template-columns: 1fr 1fr; } }
@@ -74,7 +75,59 @@
   }
   .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .gnote { text-align: center; color: var(--sub); font-size: 0.78rem; margin-top: 14px; }
-
+  /* support section */
+  .support-inner {
+    max-width: 720px; margin: 0 auto;
+    background: var(--support-bg); border: 2px solid #f0d5be; border-radius: 16px;
+    padding: 40px 36px; text-align: center;
+  }
+  .support-inner .icon-row { font-size: 2rem; margin-bottom: 16px; }
+  .support-inner p { font-size: 0.95rem; margin-bottom: 1em; color: var(--ink); }
+  .support-inner p strong { color: var(--accent-dark); }
+  .support-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin: 28px 0; text-align: center;
+  }
+  @media (max-width: 640px) { .support-stats { grid-template-columns: 1fr; } }
+  .stat-box {
+    background: #fff; border: 1px solid #f0d5be; border-radius: 12px; padding: 18px 12px;
+  }
+  .stat-box .num { font-size: 1.5rem; font-weight: 700; color: var(--accent); display: block; }
+  .stat-box .label { font-size: 0.78rem; color: var(--sub); }
+  .support-btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 24px; }
+  .btn {
+    display: inline-block;
+    background: var(--accent); color: #fff; text-decoration: none;
+    padding: 12px 34px; border-radius: 999px; font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  .btn:hover { background: var(--accent-dark); }
+  .btn-outline {
+    display: inline-block;
+    background: #fff; color: var(--accent-dark); text-decoration: none;
+    border: 2px solid var(--accent); padding: 10px 28px; border-radius: 999px; font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--accent); color: #fff; }
+  /* graduated cats */
+  .grad-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  @media (max-width: 640px) { .grad-grid { grid-template-columns: 1fr 1fr; } }
+  .cat-card {
+    border: 1px solid var(--line); border-radius: 12px;
+    overflow: hidden; background: #fff; text-align: center;
+    transition: box-shadow 0.2s;
+  }
+  .cat-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .cat-card .thumb {
+    aspect-ratio: 1 / 1; overflow: hidden; background: var(--bg-soft);
+  }
+  .cat-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cat-card .card-body { padding: 14px 12px; }
+  .cat-card .cat-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+  .cat-card .cat-comment { font-size: 0.8rem; color: var(--sub); line-height: 1.7; }
+  .grad-note { text-align: center; color: var(--sub); font-size: 0.82rem; margin-top: 20px; }
   /* info tables */
   .card {
     background: #fff; border: 1px solid var(--line); border-radius: 12px;
@@ -91,10 +144,8 @@
   .note { font-size: 0.8rem; color: var(--sub); margin-top: 10px; }
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
   @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } }
-
   /* yoga */
   .yoga-msg { text-align: center; max-width: 600px; margin: 0 auto 30px; font-size: 0.95rem; }
-
   /* rules */
   .rules { max-width: 640px; margin: 0 auto; }
   .rules ul { list-style: none; }
@@ -104,19 +155,10 @@
   }
   .rules li::before { content: "🐾"; position: absolute; left: 0; font-size: 0.8rem; top: 11px; }
   .rules p.closing { text-align: center; margin-top: 24px; font-size: 0.88rem; color: var(--sub); }
-
   /* access */
   .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
   @media (max-width: 720px) { .access-grid { grid-template-columns: 1fr; } }
   .map { border: 0; width: 100%; height: 280px; border-radius: 12px; }
-  .btn {
-    display: inline-block; margin-top: 18px;
-    background: var(--accent); color: #fff; text-decoration: none;
-    padding: 12px 34px; border-radius: 999px; font-size: 0.9rem;
-    transition: background 0.2s;
-  }
-  .btn:hover { background: var(--accent-dark); }
-
   /* footer */
   footer {
     border-top: 1px solid var(--line); padding: 36px 24px; text-align: center;
@@ -126,14 +168,15 @@
 </style>
 </head>
 <body>
-
 <header>
   <div class="nav">
     <div class="logo">シャー猫<span>ハウス</span></div>
     <nav>
       <a href="#about">シャー猫ハウスとは</a>
+      <a href="#support">ご支援のお願い</a>
       <a href="#info">営業時間・料金</a>
       <a href="#yoga">猫ヨガ</a>
+      <a href="#graduated">家族が決まった猫</a>
       <a href="#rules">ご利用ルール</a>
       <a href="#access">アクセス</a>
     </nav>
@@ -142,10 +185,16 @@
 
 <div class="hero">
   <div class="cat">🐈</div>
-  <div class="en">Cat Cafe Time</div>
+  <div class="en">Rescue Cat Cafe / Onomichi</div>
   <h1>シャー猫ハウス</h1>
-  <p class="lead">のんびり、気ままに、自由気まま。<br>広島県尾道市の保護猫カフェです。</p>
-  <div class="badge">🏠 飼い主さん募集中の猫たちがお待ちしています</div>
+  <p class="lead">
+    ここで過ごす時間が、猫たちの命をつなぐ力になります。<br>
+    広島県尾道市の保護猫カフェです。
+  </p>
+  <div class="hero-badges">
+    <div class="badge accent-badge">🏠 里親さん募集中の猫たちがお待ちしています</div>
+    <div class="badge">💰 売上・ご寄付は全て猫たちの医療費・飼育費へ</div>
+  </div>
 </div>
 
 <section id="about" class="alt">
@@ -153,8 +202,8 @@
     <h2>シャー猫ハウスとは</h2>
     <div class="h2sub">About</div>
     <p>シャー猫ハウスは、NPO法人ペットマナーおのみちが運営する保護猫カフェです。</p>
-    <p>猫たちが安心して過ごせる空間で、のんびりとした猫との時間をお楽しみいただけます。新しい家族との出会いの場として、飼い主さんを募集している猫たちも暮らしています。</p>
-    <p>気になる猫がいたら、お気軽にスタッフへお声がけください。</p>
+    <p>地域の愛護活動の一環として、猫たちが安心して過ごせる空間をつくっています。ここを訪れてくださることが、保護猫たちへの直接的な支援になります。</p>
+    <p>新しい家族との出会いの場として、里親さんを募集している猫たちも暮らしています。気になる猫がいたら、お気軽にスタッフへお声がけください。</p>
   </div>
 </section>
 
@@ -163,18 +212,108 @@
     <h2>フォトギャラリー</h2>
     <div class="h2sub">Gallery</div>
     <div class="gallery">
-      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1KESEnHK9OFrJzdFQhGMEM5OdefuP4Mu5=w1000" alt="マットの上でくつろぐ茶白の猫" loading="lazy"></figure>
-      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1GysZpFeYIroJdCXUL1y61bgMoJeTJAG8=w1000" alt="サバトラ猫の顔のアップ" loading="lazy"></figure>
-      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1l-c3-k6vSblq_Uqvx_ENF06Chks1mbrv=w1000" alt="ベッドの中で遊ぶ三毛猫" loading="lazy"></figure>
-      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1qqfLG1Nf37BdxXfrDykRTdVCkLe3rLpE=w1000" alt="ベッドでくつろぐハチワレ猫" loading="lazy"></figure>
-      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1Jb_VFdvOehKB5lJIbMI5bDpHhx2utdxy=w1000" alt="キャットホイールで遊ぶ茶トラ猫" loading="lazy"></figure>
-      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1bjUk2N-xf_1xDQaQu9Z5xVhxKXfOwWNX=w1000" alt="じゃれ合う2匹の猫" loading="lazy"></figure>
+      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/167Qw-iHLwxe7-fZ2j0VhLVZ6MfV54ZcK=w1000" alt="シャー猫ハウスの猫たち" loading="lazy"></figure>
+      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1GysZpFeYIroJdCXUL1y61bgMoJeTJAG8=w1000" alt="シャー猫ハウスの猫たち" loading="lazy"></figure>
+      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1KESEnHK9OFrJzdFQhGMEM5OdefuP4Mu5=w1000" alt="シャー猫ハウスの猫たち" loading="lazy"></figure>
+      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1xaMNuYfuu5tPyEmR5UTQeqIEH26nu9Vc=w1000" alt="シャー猫ハウスの猫たち" loading="lazy"></figure>
+      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1l-c3-k6vSblq_Uqvx_ENF06Chks1mbrv=w1000" alt="シャー猫ハウスの猫たち" loading="lazy"></figure>
+      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1J_Dlnh68u0gi_1w-TfDlPvoqhQ9dNje-=w1000" alt="シャー猫ハウスの猫たち" loading="lazy"></figure>
     </div>
     <p class="gnote">撮影：Tomoka Hosoya 様　／　最新の猫たちの様子はInstagramでご覧いただけます。</p>
   </div>
 </section>
 
-<section id="info" class="alt">
+<section id="support" class="alt">
+  <div class="wrap">
+    <h2>ご支援のお願い</h2>
+    <div class="h2sub">Support Us</div>
+    <div class="support-inner">
+      <div class="icon-row">🐾 ❤️ 🐾</div>
+      <p>シャー猫ハウスは、<strong>皆様のご来店・ご厚意によって成り立っています。</strong></p>
+      <p>カフェの売上は、<strong>すべて、猫たちの医療費・ワクチン・避妊去勢手術・日々の飼育費に充てられます。</strong></p>
+      <p>ご来店いただくこと、SNSでシェアしていただくこと、そしてご寄付——<br>どんな形のご支援も、猫たちの命をつなぐ大きな力になります。</p>
+      <div class="support-stats">
+        <div class="stat-box">
+          <span class="num">100%</span>
+          <span class="label">売上は猫たちの<br>医療・飼育費へ</span>
+        </div>
+        <div class="stat-box">
+          <span class="num">NPO</span>
+          <span class="label">法人ペットマナー<br>おのみちが運営</span>
+        </div>
+        <div class="stat-box">
+          <span class="num">地域</span>
+          <span class="label">尾道の愛護<br>活動を支える</span>
+        </div>
+      </div>
+      <div style="max-width:560px;margin:28px auto 0;">
+        <p style="font-size:0.88rem;font-weight:700;color:var(--accent-dark);margin-bottom:14px;text-align:center;">🐱 あなたの寄付でできること</p>
+        <p style="font-size:0.78rem;color:var(--sub);text-align:center;margin-bottom:12px;">医療費</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px;">
+          <div style="background:#fff;border:1px solid #f0d5be;border-radius:10px;padding:12px 8px;text-align:center;">
+            <span style="display:block;font-size:1rem;font-weight:700;color:var(--accent);">1,000円</span>
+            <span style="font-size:0.75rem;color:var(--sub);">糞便検査</span>
+          </div>
+          <div style="background:#fff;border:1px solid #f0d5be;border-radius:10px;padding:12px 8px;text-align:center;">
+            <span style="display:block;font-size:1rem;font-weight:700;color:var(--accent);">2,000円</span>
+            <span style="font-size:0.75rem;color:var(--sub);">ワクチン<br>猫エイズ検査</span>
+          </div>
+          <div style="background:#fff;border:1px solid #f0d5be;border-radius:10px;padding:12px 8px;text-align:center;">
+            <span style="display:block;font-size:1rem;font-weight:700;color:var(--accent);">5,000円</span>
+            <span style="font-size:0.75rem;color:var(--sub);">血液検査</span>
+          </div>
+          <div style="background:#fff;border:1px solid #f0d5be;border-radius:10px;padding:12px 8px;text-align:center;">
+            <span style="display:block;font-size:1rem;font-weight:700;color:var(--accent);">7,000円</span>
+            <span style="font-size:0.75rem;color:var(--sub);">ワクチン</span>
+          </div>
+          <div style="background:#fff;border:1px solid #f0d5be;border-radius:10px;padding:12px 8px;text-align:center;">
+            <span style="display:block;font-size:1rem;font-weight:700;color:var(--accent);">20,000円</span>
+            <span style="font-size:0.75rem;color:var(--sub);">去勢・不妊手術</span>
+          </div>
+          <div style="background:#fff8f2;border:1px solid #f0d5be;border-radius:10px;padding:12px 8px;text-align:center;">
+            <span style="display:block;font-size:1rem;font-weight:700;color:var(--accent);">1,500円</span>
+            <span style="font-size:0.75rem;color:var(--sub);">フード代<br>（1ヵ月分）</span>
+          </div>
+        </div>
+      </div>
+      <div style="max-width:480px;margin:24px auto 0;text-align:center;">
+        <details style="text-align:left;">
+          <summary style="
+            display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+            background:var(--accent);color:#fff;border:none;
+            padding:12px 28px;border-radius:999px;font-size:0.9rem;font-weight:600;
+            list-style:none;user-select:none;margin:0 auto;
+          ">
+            💳 ご寄付の振込先を確認する
+          </summary>
+          <div style="background:#fff;border:1px solid #f0d5be;border-radius:12px;padding:18px;margin-top:12px;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+              <tr style="border-bottom:1px solid var(--line);">
+                <th style="padding:8px 6px;width:42%;font-weight:600;color:var(--ink);vertical-align:top;">ゆうちょ銀行</th>
+                <td style="padding:8px 6px;vertical-align:top;">五一八（ゴイチハチ）支店<br>普通預金　5031808<br><span style="font-size:0.78rem;color:var(--sub);">名義：NPO法人ペットマナーおのみち</span></td>
+              </tr>
+              <tr>
+                <th style="padding:8px 6px;font-weight:600;color:var(--ink);vertical-align:top;">広島銀行<br>尾道支店</th>
+                <td style="padding:8px 6px;vertical-align:top;">普通預金　3382601<br><span style="font-size:0.78rem;color:var(--sub);">名義：NPO法人ペットマナーおのみち</span></td>
+              </tr>
+            </table>
+            <p style="font-size:0.75rem;color:var(--sub);margin-top:10px;text-align:center;">※振込前に必ずInstagramのDMにて口座情報をご確認ください</p>
+          </div>
+        </details>
+      </div>
+      <p style="font-size: 0.88rem; color: var(--sub); margin-top: 20px;">
+        母体NPO「ペットマナーおのみち」では、愛護活動の最新情報を発信しています。<br>
+        活動の詳細やお問い合わせは、下記Instagramよりご連絡ください。
+      </p>
+      <div class="support-btns">
+        <a class="btn" href="https://www.instagram.com/shah_neko_house/" target="_blank" rel="noopener">シャー猫ハウス Instagram</a>
+        <a class="btn-outline" href="https://www.instagram.com/petmanner.onomichi/" target="_blank" rel="noopener">🐱 ペットマナーおのみち Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="info">
   <div class="wrap">
     <h2>営業時間・料金</h2>
     <div class="h2sub">Information</div>
@@ -182,19 +321,19 @@
       <div class="card">
         <h3>🕛 営業時間</h3>
         <table>
-          <tr><th>金曜日</th><td>12:00～20:00</td></tr>
-          <tr><th>土・日・祝</th><td>12:00～18:00</td></tr>
+          <tr><th>金曜日</th><td>12：00～20：00</td></tr>
+          <tr><th>土・日・祝</th><td>12：00～18：00</td></tr>
           <tr><th>定休日</th><td>月・火・水・木</td></tr>
         </table>
-        <p class="note">※金曜日が祝日の場合は20:00まで営業<br>※店内が混み合う場合は待ち時間があります</p>
+        <p class="note">※金曜日が祝日の場合は20：00まで営業<br>※店内が混み合う場合は待ち時間があります</p>
       </div>
       <div class="card">
         <h3>💰 料金</h3>
         <table>
-          <tr><th>1時間</th><td>1,500円(ワンドリンク付)</td></tr>
-          <tr><th>高校生</th><td>1,300円(ワンドリンク付)</td></tr>
+          <tr><th>1時間</th><td>1,500円（ワンドリンク付）</td></tr>
+          <tr><th>高校生</th><td>1,300円（ワンドリンク付）</td></tr>
           <tr><th>中学生以下</th><td>500円<br><small>保護者同伴で時間制限なし</small></td></tr>
-          <tr><th>シニア割引<br><small>(70歳以上)</small></th><td>1,300円(ワンドリンク付)</td></tr>
+          <tr><th>シニア割引<br><small>（70歳以上）</small></th><td>1,300円（ワンドリンク付）</td></tr>
           <tr><th>延長</th><td>30分毎 500円</td></tr>
           <tr><th>追加ドリンク</th><td>300円</td></tr>
         </table>
@@ -204,22 +343,64 @@
   </div>
 </section>
 
-<section id="yoga">
+<section id="yoga" class="alt">
   <div class="wrap">
     <h2>猫ヨガ</h2>
     <div class="h2sub">Cat Yoga</div>
     <p class="yoga-msg">猫と一緒に、呼吸と動きをととのえる<br>やさしいヨガ時間。はじめての方も、体が硬くても大丈夫。<br>猫が近くに来たり、そっと見ていたり、自由に動き回ったり。<br>猫との時間に癒されたい方へ。1回からお気軽にご参加ください。</p>
     <div class="card" style="max-width: 560px; margin: 0 auto;">
       <table>
-        <tr><th>開催日時</th><td>毎週月曜日 19:30～(約1時間)</td></tr>
+        <tr><th>開催日時</th><td>毎週月曜日 19：30～（約1時間）</td></tr>
         <tr><th>定員</th><td>6名</td></tr>
-        <tr><th>講師</th><td>杉原ともみ (<a href="https://www.instagram.com/yoga.stri/" target="_blank" rel="noopener">@yoga.stri</a>)</td></tr>
-        <tr><th>参加費</th><td>1,650円(税込)</td></tr>
-        <tr><th>持ち物</th><td>ヨガマット、飲み物、ブランケット(必要な方)</td></tr>
-        <tr><th>レンタルヨガマット</th><td>あり(+150円)　※ご予約時にお伝えください</td></tr>
+        <tr><th>講師</th><td>杉原ともみ（<a href="https://www.instagram.com/yoga.stri/" target="_blank" rel="noopener">@yoga.stri</a>）</td></tr>
+        <tr><th>参加費</th><td>1,650円（税込）</td></tr>
+        <tr><th>持ち物</th><td>ヨガマット、飲み物、ブランケット（必要な方）</td></tr>
+        <tr><th>レンタルヨガマット</th><td>あり（＋150円）　※ご予約時にお伝えください</td></tr>
         <tr><th>ご予約</th><td>前日までに要予約・InstagramのDMまたはお電話にて</td></tr>
       </table>
     </div>
+  </div>
+</section>
+
+<section id="graduated">
+  <div class="wrap">
+    <h2>家族が決まった猫たち</h2>
+    <div class="h2sub">Cats Found Their Forever Home</div>
+    <p style="text-align: center; color: var(--sub); font-size: 0.9rem; margin-bottom: 36px;">
+      シャー猫ハウスから、新しい家族のもとへ旅立っていった猫たちをご紹介します。<br>
+      一頭でも多くの猫に、温かいご家族との出会いを。
+    </p>
+    <div class="grad-grid">
+      <!-- 以下は掲載例です。写真URLと情報をご変更ください -->
+      <div class="cat-card">
+        <div class="thumb">
+          <img src="https://lh3.googleusercontent.com/d/1JJoBPCKmYiCbPDZTPzu4zQyP1UfAzzBo=w400" alt="家族が決まった猫" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="cat-name">（お名前）</div>
+          <div class="cat-comment">新しいおうちで元気に過ごしています 🐾</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="thumb">
+          <img src="https://lh3.googleusercontent.com/d/1pyYq1e_B_0MmOHJx1xE10Mh740zrMdpe=w400" alt="家族が決まった猫" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="cat-name">（お名前）</div>
+          <div class="cat-comment">温かい家族に迎えてもらいました 🐾</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="thumb">
+          <img src="https://lh3.googleusercontent.com/d/1bjUk2N-xf_1xDQaQu9Z5xVhxKXfOwWNX=w400" alt="家族が決まった猫" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="cat-name">（お名前）</div>
+          <div class="cat-comment">幸せな毎日を送っています 🐾</div>
+        </div>
+      </div>
+    </div>
+    <p class="grad-note">※写真・お名前・コメントは順次更新します。最新情報は<a href="https://www.instagram.com/shah_neko_house/" target="_blank" rel="noopener">Instagram</a>でもご覧いただけます。</p>
   </div>
 </section>
 
@@ -230,7 +411,7 @@
     <ul>
       <li>小学生以下のご入店はスタッフへご確認ください</li>
       <li>手指のアルコール消毒をお願いします</li>
-      <li>店内では靴下の着用をお願いします(靴下は店頭で販売しています)</li>
+      <li>店内では靴下の着用をお願いします（靴下は店頭で販売しています）</li>
       <li>酔った状態でのご入店はお断りしています</li>
       <li>猫アレルギーのある方は、事前に医師へご相談ください</li>
       <li>無理に抱っこしないでください</li>
@@ -261,7 +442,7 @@
           <tr><th>お問合せ</th><td>InstagramのDMにてお気軽にどうぞ</td></tr>
         </table>
         <div style="text-align: center;">
-          <a class="btn" href="https://www.instagram.com/shah_neko_house/" target="_blank" rel="noopener">Instagramを見る</a>
+          <a class="btn" href="https://www.instagram.com/shah_neko_house/" target="_blank" rel="noopener" style="margin-top: 18px;">Instagramを見る</a>
         </div>
       </div>
       <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
@@ -273,9 +454,9 @@
 <footer>
   <div class="fl">シャー猫ハウス</div>
   広島県尾道市美ノ郷町三成869-4<br>
-  運営：NPO法人 ペットマナーおのみち<br><br>
+  運営：NPO法人 ペットマナーおのみち<br>
+  <a href="https://www.instagram.com/petmanner.onomichi/" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">📷 ペットマナーおのみち Instagram</a><br><br>
   &copy; 2026 Shah Neko House
 </footer>
-
 </body>
 </html>
