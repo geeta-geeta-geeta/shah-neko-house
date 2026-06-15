@@ -1,462 +1,397 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>シャー猫ハウス｜尾道の保護猫カフェ</title>
-<meta name="description" content="広島県尾道市の保護猫カフェ「シャー猫ハウス」。売上・ご寄付は全て猫たちの医療費・飼育費に。飼い主さん募集中。毎週月曜は猫ヨガも開催。">
+<title>YUTAKA 2026</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+JP:wght@100;300&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
-    --ink: #3a3a3a;
-    --sub: #767676;
-    --accent: #c98a5b;
-    --accent-dark: #a96f44;
-    --line: #e8e4df;
-    --bg-soft: #faf8f5;
-    --support-bg: #fff8f2;
+    --ink:    #0D1B2A;
+    --cream:  #F7F0F0;
+    --sakura: #C85250;
+    --gold:   #D4914A;
+    --moss:   #4A6741;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+
   html { scroll-behavior: smooth; }
+
   body {
-    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
-    color: var(--ink);
-    background: #fff;
-    line-height: 1.9;
-    letter-spacing: 0.04em;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 100;
+    overflow-x: hidden;
   }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
-  /* header */
-  header {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--line);
+
+  /* ── COVER ── */
+  .cover {
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
   }
-  .nav {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 24px; max-width: 880px; margin: 0 auto;
+
+  .cover-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, #1a2e3e 0%, #0D1B2A 70%);
   }
-  .logo { font-weight: 700; font-size: 1.05rem; }
-  .logo span { color: var(--accent); }
-  nav a {
-    text-decoration: none; color: var(--sub); font-size: 0.78rem; margin-left: 12px;
-    white-space: nowrap;
+
+  .cover-rule-v {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    width: 1px;
+    height: 60%;
+    background: linear-gradient(to bottom, transparent, var(--sakura) 40%, transparent);
+    opacity: .35;
   }
-  nav a:hover { color: var(--accent-dark); }
-  @media (max-width: 860px) { nav { display: none; } }
-  /* hero */
-  .hero { text-align: center; padding: 80px 24px 60px; }
-  .hero .cat { font-size: 2.6rem; }
-  .hero h1 { font-size: 2rem; font-weight: 700; margin: 10px 0 6px; letter-spacing: 0.12em; }
-  .hero .en { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; }
-  .hero p.lead { margin-top: 26px; color: var(--sub); font-size: 0.95rem; }
-  .hero-badges { margin-top: 22px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-  .badge {
-    display: inline-block;
-    background: var(--bg-soft); border: 1px solid var(--line);
-    border-radius: 999px; padding: 6px 22px; font-size: 0.85rem; color: var(--accent-dark);
+
+  .cover-title {
+    position: relative;
+    text-align: center;
+    letter-spacing: .35em;
   }
-  .badge.accent-badge {
-    background: var(--accent); border-color: var(--accent); color: #fff;
+
+  .cover-title .en {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(3.5rem, 12vw, 9rem);
+    color: var(--cream);
+    line-height: 1;
+    display: block;
   }
-  /* sections */
-  section { padding: 64px 0; }
-  section.alt { background: var(--bg-soft); }
-  h2 { text-align: center; font-size: 1.3rem; letter-spacing: 0.2em; margin-bottom: 8px; }
-  .h2sub { text-align: center; color: var(--accent); font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 40px; }
-  /* about */
-  .about p { max-width: 640px; margin: 0 auto 1.2em; text-align: center; font-size: 0.95rem; }
-  /* photos */
-  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  @media (max-width: 640px) { .gallery { grid-template-columns: 1fr 1fr; } }
-  .ph {
-    aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden;
-    background: var(--bg-soft); margin: 0;
+
+  .cover-title .year {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1rem, 3vw, 2rem);
+    color: var(--sakura);
+    letter-spacing: .6em;
+    display: block;
+    margin-top: .4em;
   }
-  .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .gnote { text-align: center; color: var(--sub); font-size: 0.78rem; margin-top: 14px; }
-  /* support section */
-  .support-inner {
-    max-width: 720px; margin: 0 auto;
-    background: var(--support-bg); border: 2px solid #f0d5be; border-radius: 16px;
-    padding: 40px 36px; text-align: center;
+
+  .cover-title .ja {
+    font-size: clamp(.65rem, 1.5vw, .85rem);
+    font-weight: 300;
+    letter-spacing: .5em;
+    color: rgba(247,240,240,.45);
+    display: block;
+    margin-top: 1.6em;
   }
-  .support-inner .icon-row { font-size: 2rem; margin-bottom: 16px; }
-  .support-inner p { font-size: 0.95rem; margin-bottom: 1em; color: var(--ink); }
-  .support-inner p strong { color: var(--accent-dark); }
-  .support-stats {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-    margin: 28px 0; text-align: center;
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+    opacity: .4;
+    animation: breathe 2.8s ease-in-out infinite;
   }
-  @media (max-width: 640px) { .support-stats { grid-template-columns: 1fr; } }
-  .stat-box {
-    background: #fff; border: 1px solid #f0d5be; border-radius: 12px; padding: 18px 12px;
+
+  .scroll-hint span {
+    font-size: .6rem;
+    letter-spacing: .4em;
   }
-  .stat-box .num { font-size: 1.5rem; font-weight: 700; color: var(--accent); display: block; }
-  .stat-box .label { font-size: 0.78rem; color: var(--sub); }
-  .support-btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 24px; }
-  .btn {
-    display: inline-block;
-    background: var(--accent); color: #fff; text-decoration: none;
-    padding: 12px 34px; border-radius: 999px; font-size: 0.9rem;
-    transition: background 0.2s;
+
+  .scroll-hint::after {
+    content: '';
+    width: 1px;
+    height: 2.5rem;
+    background: var(--cream);
   }
-  .btn:hover { background: var(--accent-dark); }
-  .btn-outline {
-    display: inline-block;
-    background: #fff; color: var(--accent-dark); text-decoration: none;
-    border: 2px solid var(--accent); padding: 10px 28px; border-radius: 999px; font-size: 0.9rem;
-    transition: all 0.2s;
+
+  @keyframes breathe {
+    0%,100% { opacity: .4; transform: translateX(-50%) translateY(0); }
+    50%      { opacity: .7; transform: translateX(-50%) translateY(6px); }
   }
-  .btn-outline:hover { background: var(--accent); color: #fff; }
-  /* graduated cats */
-  .grad-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+
+  /* ── SEASON DIVIDER ── */
+  .season {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 5rem 8vw 2.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .9s ease, transform .9s ease;
   }
-  @media (max-width: 640px) { .grad-grid { grid-template-columns: 1fr 1fr; } }
-  .cat-card {
-    border: 1px solid var(--line); border-radius: 12px;
-    overflow: hidden; background: #fff; text-align: center;
-    transition: box-shadow 0.2s;
+
+  .season.visible { opacity: 1; transform: none; }
+
+  .season-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: var(--sakura);
+    line-height: 1;
+    opacity: .25;
+    flex-shrink: 0;
+    letter-spacing: -.02em;
   }
-  .cat-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-  .cat-card .thumb {
-    aspect-ratio: 1 / 1; overflow: hidden; background: var(--bg-soft);
+
+  .season-text { border-left: 1px solid rgba(247,240,240,.15); padding-left: 1.2rem; }
+  .season-text .label { font-size: .65rem; letter-spacing: .5em; color: var(--gold); margin-bottom: .5rem; }
+  .season-text .name  { font-size: clamp(1rem, 3vw, 1.6rem); font-weight: 300; letter-spacing: .2em; }
+
+  /* ── PHOTO ENTRY ── */
+  .entry {
+    padding: 1.5rem 4vw 4rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.1s ease, transform 1.1s ease;
   }
-  .cat-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .cat-card .card-body { padding: 14px 12px; }
-  .cat-card .cat-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
-  .cat-card .cat-comment { font-size: 0.8rem; color: var(--sub); line-height: 1.7; }
-  .grad-note { text-align: center; color: var(--sub); font-size: 0.82rem; margin-top: 20px; }
-  /* info tables */
-  .card {
-    background: #fff; border: 1px solid var(--line); border-radius: 12px;
-    padding: 28px 30px; margin-bottom: 22px;
+
+  .entry.visible { opacity: 1; transform: none; }
+
+  .entry img {
+    width: 100%;
+    display: block;
+    aspect-ratio: auto;
+    object-fit: cover;
+    max-height: 85svh;
   }
-  .card h3 {
-    font-size: 1rem; color: var(--accent-dark); margin-bottom: 14px;
-    display: flex; align-items: center; gap: 8px;
+
+  /* layout variations */
+  .entry.full    { padding: 1.5rem 0 4rem; }
+  .entry.full img { max-height: 95svh; }
+
+  .entry.inset   { padding: 1.5rem 10vw 4rem; }
+
+  .entry.side {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 1.5rem 4vw 4rem;
+    align-items: end;
   }
-  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
-  th, td { text-align: left; padding: 9px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { width: 38%; font-weight: 600; color: var(--ink); }
-  tr:last-child th, tr:last-child td { border-bottom: none; }
-  .note { font-size: 0.8rem; color: var(--sub); margin-top: 10px; }
-  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-  @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } }
-  /* yoga */
-  .yoga-msg { text-align: center; max-width: 600px; margin: 0 auto 30px; font-size: 0.95rem; }
-  /* rules */
-  .rules { max-width: 640px; margin: 0 auto; }
-  .rules ul { list-style: none; }
-  .rules li {
-    padding: 9px 0 9px 28px; position: relative;
-    border-bottom: 1px dashed var(--line); font-size: 0.9rem;
+
+  .entry.side img { max-height: 70svh; }
+
+  .caption-block {
+    padding: 1.2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: .6rem;
   }
-  .rules li::before { content: "🐾"; position: absolute; left: 0; font-size: 0.8rem; top: 11px; }
-  .rules p.closing { text-align: center; margin-top: 24px; font-size: 0.88rem; color: var(--sub); }
-  /* access */
-  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
-  @media (max-width: 720px) { .access-grid { grid-template-columns: 1fr; } }
-  .map { border: 0; width: 100%; height: 280px; border-radius: 12px; }
-  /* footer */
-  footer {
-    border-top: 1px solid var(--line); padding: 36px 24px; text-align: center;
-    color: var(--sub); font-size: 0.78rem;
+
+  .caption-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: rgba(247,240,240,.08);
+    line-height: 1;
   }
-  footer .fl { font-weight: 600; color: var(--ink); font-size: 0.9rem; margin-bottom: 6px; }
+
+  .caption-main {
+    font-size: clamp(.75rem, 1.8vw, 1rem);
+    font-weight: 300;
+    letter-spacing: .15em;
+    line-height: 1.8;
+  }
+
+  .caption-sub {
+    font-size: .6rem;
+    letter-spacing: .35em;
+    color: rgba(247,240,240,.4);
+    margin-top: .3rem;
+  }
+
+  .caption-inline {
+    padding: .8rem 0 0 .3rem;
+  }
+
+  .caption-inline .caption-main { font-size: .7rem; letter-spacing: .3em; color: rgba(247,240,240,.55); }
+
+  /* ── COLOPHON ── */
+  .colophon {
+    border-top: 1px solid rgba(247,240,240,.1);
+    padding: 5rem 8vw 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+  .colophon.visible { opacity: 1; transform: none; }
+
+  .colophon .c-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 2rem;
+    letter-spacing: .3em;
+    color: var(--gold);
+  }
+
+  .colophon p { font-size: .65rem; letter-spacing: .3em; color: rgba(247,240,240,.35); line-height: 2; }
+
+  @media (max-width: 640px) {
+    .entry.side { grid-template-columns: 1fr; }
+    .caption-block { padding: 1rem .2rem; }
+  }
 </style>
 </head>
 <body>
-<header>
-  <div class="nav">
-    <div class="logo">シャー猫<span>ハウス</span></div>
-    <nav>
-      <a href="#about">シャー猫ハウスとは</a>
-      <a href="#support">ご支援のお願い</a>
-      <a href="#info">営業時間・料金</a>
-      <a href="#yoga">猫ヨガ</a>
-      <a href="#graduated">家族が決まった猫</a>
-      <a href="#rules">ご利用ルール</a>
-      <a href="#access">アクセス</a>
-    </nav>
-  </div>
-</header>
 
-<div class="hero">
-  <div class="cat">🐈</div>
-  <div class="en">Rescue Cat Cafe / Onomichi</div>
-  <h1>シャー猫ハウス</h1>
-  <p class="lead">
-    ここで過ごす時間が、猫たちの命をつなぐ力になります。<br>
-    広島県尾道市の保護猫カフェです。
-  </p>
-  <div class="hero-badges">
-    <div class="badge accent-badge">🏠 里親さん募集中の猫たちがお待ちしています</div>
-    <div class="badge">💰 売上・ご寄付は全て猫たちの医療費・飼育費へ</div>
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-bg"></div>
+  <div class="cover-rule-v"></div>
+  <div class="cover-title">
+    <span class="en">YUTAKA</span>
+    <span class="year">2 0 2 6</span>
+    <span class="ja">三原の情景　― 春から夏へ ―</span>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span></div>
+</section>
+
+<!-- SEASON 01 ── 梅 -->
+<div class="season">
+  <div class="season-num">01</div>
+  <div class="season-text">
+    <div class="label">EARLY SPRING</div>
+    <div class="name">梅、ひとつ咲く</div>
   </div>
 </div>
 
-<section id="about" class="alt">
-  <div class="wrap about">
-    <h2>シャー猫ハウスとは</h2>
-    <div class="h2sub">About</div>
-    <p>シャー猫ハウスは、NPO法人ペットマナーおのみちが運営する保護猫カフェです。</p>
-    <p>地域の愛護活動の一環として、猫たちが安心して過ごせる空間をつくっています。ここを訪れてくださることが、保護猫たちへの直接的な支援になります。</p>
-    <p>新しい家族との出会いの場として、里親さんを募集している猫たちも暮らしています。気になる猫がいたら、お気軽にスタッフへお声がけください。</p>
+<div class="entry inset">
+  <img src="IMG_0156.JPG" alt="夕方の桜並木">
+  <div class="caption-inline">
+    <div class="caption-main">冬枯れの枝に はじめの一輪</div>
+    <div class="caption-sub">PLUM BLOSSOM — MIHARA</div>
   </div>
-</section>
+</div>
 
-<section>
-  <div class="wrap">
-    <h2>フォトギャラリー</h2>
-    <div class="h2sub">Gallery</div>
-    <div class="gallery">
-      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/167Qw-iHLwxe7-fZ2j0VhLVZ6MfV54ZcK=w1000" alt="シャー猫ハウスの猫たち" loading="lazy"></figure>
-      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1GysZpFeYIroJdCXUL1y61bgMoJeTJAG8=w1000" alt="シャー猫ハウスの猫たち" loading="lazy"></figure>
-      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1KESEnHK9OFrJzdFQhGMEM5OdefuP4Mu5=w1000" alt="シャー猫ハウスの猫たち" loading="lazy"></figure>
-      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1xaMNuYfuu5tPyEmR5UTQeqIEH26nu9Vc=w1000" alt="シャー猫ハウスの猫たち" loading="lazy"></figure>
-      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1l-c3-k6vSblq_Uqvx_ENF06Chks1mbrv=w1000" alt="シャー猫ハウスの猫たち" loading="lazy"></figure>
-      <figure class="ph"><img src="https://lh3.googleusercontent.com/d/1J_Dlnh68u0gi_1w-TfDlPvoqhQ9dNje-=w1000" alt="シャー猫ハウスの猫たち" loading="lazy"></figure>
-    </div>
-    <p class="gnote">撮影：Tomoka Hosoya 様　／　最新の猫たちの様子はInstagramでご覧いただけます。</p>
+<!-- SEASON 02 ── 桜 開花前 -->
+<div class="season">
+  <div class="season-num">02</div>
+  <div class="season-text">
+    <div class="label">SAKURA — BEFORE</div>
+    <div class="name">桜並木、花待つ頃</div>
   </div>
-</section>
+</div>
 
-<section id="support" class="alt">
-  <div class="wrap">
-    <h2>ご支援のお願い</h2>
-    <div class="h2sub">Support Us</div>
-    <div class="support-inner">
-      <div class="icon-row">🐾 ❤️ 🐾</div>
-      <p>シャー猫ハウスは、<strong>皆様のご来店・ご厚意によって成り立っています。</strong></p>
-      <p>カフェの売上は、<strong>すべて、猫たちの医療費・ワクチン・避妊去勢手術・日々の飼育費に充てられます。</strong></p>
-      <p>ご来店いただくこと、SNSでシェアしていただくこと、そしてご寄付——<br>どんな形のご支援も、猫たちの命をつなぐ大きな力になります。</p>
-      <div class="support-stats">
-        <div class="stat-box">
-          <span class="num">100%</span>
-          <span class="label">売上は猫たちの<br>医療・飼育費へ</span>
-        </div>
-        <div class="stat-box">
-          <span class="num">NPO</span>
-          <span class="label">法人ペットマナー<br>おのみちが運営</span>
-        </div>
-        <div class="stat-box">
-          <span class="num">地域</span>
-          <span class="label">尾道の愛護<br>活動を支える</span>
-        </div>
-      </div>
-      <div style="max-width:560px;margin:28px auto 0;">
-        <p style="font-size:0.88rem;font-weight:700;color:var(--accent-dark);margin-bottom:14px;text-align:left;">🐱 あなたのご支援でできること</p>
-        <p style="font-size:0.78rem;color:var(--sub);text-align:left;margin-bottom:12px;">医療費</p>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px;">
-          <div style="background:#fff;border:1px solid #f0d5be;border-radius:10px;padding:12px 10px;text-align:left;">
-            <span style="display:block;font-size:1rem;font-weight:700;color:var(--accent);">1,000円</span>
-            <span style="font-size:0.75rem;color:var(--sub);">糞便検査</span>
-          </div>
-          <div style="background:#fff;border:1px solid #f0d5be;border-radius:10px;padding:12px 10px;text-align:left;">
-            <span style="display:block;font-size:1rem;font-weight:700;color:var(--accent);">2,000円</span>
-            <span style="font-size:0.75rem;color:var(--sub);">ワクチン・猫エイズ検査</span>
-          </div>
-          <div style="background:#fff;border:1px solid #f0d5be;border-radius:10px;padding:12px 10px;text-align:left;">
-            <span style="display:block;font-size:1rem;font-weight:700;color:var(--accent);">5,000円</span>
-            <span style="font-size:0.75rem;color:var(--sub);">血液検査</span>
-          </div>
-          <div style="background:#fff;border:1px solid #f0d5be;border-radius:10px;padding:12px 10px;text-align:left;">
-            <span style="display:block;font-size:1rem;font-weight:700;color:var(--accent);">7,000円</span>
-            <span style="font-size:0.75rem;color:var(--sub);">ワクチン</span>
-          </div>
-          <div style="background:#fff;border:1px solid #f0d5be;border-radius:10px;padding:12px 10px;text-align:left;">
-            <span style="display:block;font-size:1rem;font-weight:700;color:var(--accent);">20,000円</span>
-            <span style="font-size:0.75rem;color:var(--sub);">去勢・不妊手術</span>
-          </div>
-          <div style="background:#fff8f2;border:1px solid #f0d5be;border-radius:10px;padding:12px 10px;text-align:left;">
-            <span style="display:block;font-size:1rem;font-weight:700;color:var(--accent);">1,500円</span>
-            <span style="font-size:0.75rem;color:var(--sub);">フード代（1ヵ月分）</span>
-          </div>
-        </div>
-      </div>
-      <div style="max-width:480px;margin:24px auto 0;text-align:center;">
-        <details style="text-align:left;">
-          <summary style="
-            display:inline-flex;align-items:center;gap:8px;cursor:pointer;
-            background:var(--accent);color:#fff;border:none;
-            padding:12px 28px;border-radius:999px;font-size:0.9rem;font-weight:600;
-            list-style:none;user-select:none;margin:0 auto;
-          ">
-            💳 ご寄付の振込先を確認する
-          </summary>
-          <div style="background:#fff;border:1px solid #f0d5be;border-radius:12px;padding:18px;margin-top:12px;">
-            <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
-              <tr style="border-bottom:1px solid var(--line);">
-                <th style="padding:8px 6px;width:42%;font-weight:600;color:var(--ink);vertical-align:top;">ゆうちょ銀行</th>
-                <td style="padding:8px 6px;vertical-align:top;">五一八（ゴイチハチ）支店<br>普通預金　5031808<br><span style="font-size:0.78rem;color:var(--sub);">名義：NPO法人ペットマナーおのみち</span></td>
-              </tr>
-              <tr>
-                <th style="padding:8px 6px;font-weight:600;color:var(--ink);vertical-align:top;">広島銀行<br>尾道支店</th>
-                <td style="padding:8px 6px;vertical-align:top;">普通預金　3382601<br><span style="font-size:0.78rem;color:var(--sub);">名義：NPO法人ペットマナーおのみち</span></td>
-              </tr>
-            </table>
-            <p style="font-size:0.75rem;color:var(--sub);margin-top:10px;text-align:center;">※振込前に必ずInstagramのDMにて口座情報をご確認ください</p>
-          </div>
-        </details>
-      </div>
-      <p style="font-size: 0.88rem; color: var(--sub); margin-top: 20px;">
-        母体NPO「ペットマナーおのみち」では、愛護活動の最新情報を発信しています。<br>
-        活動の詳細やお問い合わせは、下記Instagramよりご連絡ください。
-      </p>
-      <div class="support-btns">
-        <a class="btn" href="https://www.instagram.com/shah_neko_house/" target="_blank" rel="noopener">シャー猫ハウス Instagram</a>
-        <a class="btn-outline" href="https://www.instagram.com/petmanner.onomichi/" target="_blank" rel="noopener">🐱 ペットマナーおのみち Instagram</a>
-      </div>
-    </div>
+<div class="entry side">
+  <img src="IMG_0155.JPG" alt="曇り空の桜並木">
+  <div class="caption-block">
+    <div class="caption-num">02</div>
+    <div class="caption-main">曇天の海沿いに<br>赤い提灯が揺れる<br>咲き始めの静けさ</div>
+    <div class="caption-sub">WATERFRONT PROMENADE — OVERCAST</div>
   </div>
-</section>
+</div>
 
-<section id="info">
-  <div class="wrap">
-    <h2>営業時間・料金</h2>
-    <div class="h2sub">Information</div>
-    <div class="cols">
-      <div class="card">
-        <h3>🕛 営業時間</h3>
-        <table>
-          <tr><th>金曜日</th><td>12：00～20：00</td></tr>
-          <tr><th>土・日・祝</th><td>12：00～18：00</td></tr>
-          <tr><th>定休日</th><td>月・火・水・木</td></tr>
-        </table>
-        <p class="note">※金曜日が祝日の場合は20：00まで営業<br>※店内が混み合う場合は待ち時間があります</p>
-      </div>
-      <div class="card">
-        <h3>💰 料金</h3>
-        <table>
-          <tr><th>1時間</th><td>1,500円（ワンドリンク付）</td></tr>
-          <tr><th>高校生</th><td>1,300円（ワンドリンク付）</td></tr>
-          <tr><th>中学生以下</th><td>500円<br><small>保護者同伴で時間制限なし</small></td></tr>
-          <tr><th>シニア割引<br><small>（70歳以上）</small></th><td>1,300円（ワンドリンク付）</td></tr>
-          <tr><th>延長</th><td>30分毎 500円</td></tr>
-          <tr><th>追加ドリンク</th><td>300円</td></tr>
-        </table>
-        <p class="note">※シニア割引は年齢が確認できるもののご提示をお願いします</p>
-      </div>
-    </div>
+<div class="entry full">
+  <img src="IMG_0154.JPG" alt="夕暮れの桜並木">
+  <div class="caption-inline" style="padding: .8rem 4vw 0;">
+    <div class="caption-main">黄昏が桜をシルエットに変えた</div>
+    <div class="caption-sub">DUSK — CHERRY BLOSSOM PROMENADE</div>
   </div>
-</section>
+</div>
 
-<section id="yoga" class="alt">
-  <div class="wrap">
-    <h2>猫ヨガ</h2>
-    <div class="h2sub">Cat Yoga</div>
-    <p class="yoga-msg">猫と一緒に、呼吸と動きをととのえる<br>やさしいヨガ時間。はじめての方も、体が硬くても大丈夫。<br>猫が近くに来たり、そっと見ていたり、自由に動き回ったり。<br>猫との時間に癒されたい方へ。1回からお気軽にご参加ください。</p>
-    <div class="card" style="max-width: 560px; margin: 0 auto;">
-      <table>
-        <tr><th>開催日時</th><td>毎週月曜日 19：30～（約1時間）</td></tr>
-        <tr><th>定員</th><td>6名</td></tr>
-        <tr><th>講師</th><td>杉原ともみ（<a href="https://www.instagram.com/yoga.stri/" target="_blank" rel="noopener">@yoga.stri</a>）</td></tr>
-        <tr><th>参加費</th><td>1,650円（税込）</td></tr>
-        <tr><th>持ち物</th><td>ヨガマット、飲み物、ブランケット（必要な方）</td></tr>
-        <tr><th>レンタルヨガマット</th><td>あり（＋150円）　※ご予約時にお伝えください</td></tr>
-        <tr><th>ご予約</th><td>前日までに要予約・InstagramのDMまたはお電話にて</td></tr>
-      </table>
-    </div>
+<!-- SEASON 03 ── 桜 満開 -->
+<div class="season">
+  <div class="season-num">03</div>
+  <div class="season-text">
+    <div class="label">SAKURA — FULL BLOOM</div>
+    <div class="name">満開の春</div>
   </div>
-</section>
+</div>
 
-<section id="graduated">
-  <div class="wrap">
-    <h2>家族が決まった猫たち</h2>
-    <div class="h2sub">Cats Found Their Forever Home</div>
-    <p style="text-align: center; color: var(--sub); font-size: 0.9rem; margin-bottom: 36px;">
-      シャー猫ハウスから、新しい家族のもとへ旅立っていった猫たちをご紹介します。<br>
-      一頭でも多くの猫に、温かいご家族との出会いを。
-    </p>
-    <div class="grad-grid">
-      <!-- 以下は掲載例です。写真URLと情報をご変更ください -->
-      <div class="cat-card">
-        <div class="thumb">
-          <img src="https://lh3.googleusercontent.com/d/1JJoBPCKmYiCbPDZTPzu4zQyP1UfAzzBo=w400" alt="家族が決まった猫" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="cat-name">（お名前）</div>
-          <div class="cat-comment">新しいおうちで元気に過ごしています 🐾</div>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="thumb">
-          <img src="https://lh3.googleusercontent.com/d/1pyYq1e_B_0MmOHJx1xE10Mh740zrMdpe=w400" alt="家族が決まった猫" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="cat-name">（お名前）</div>
-          <div class="cat-comment">温かい家族に迎えてもらいました 🐾</div>
-        </div>
-      </div>
-      <div class="cat-card">
-        <div class="thumb">
-          <img src="https://lh3.googleusercontent.com/d/1bjUk2N-xf_1xDQaQu9Z5xVhxKXfOwWNX=w400" alt="家族が決まった猫" loading="lazy">
-        </div>
-        <div class="card-body">
-          <div class="cat-name">（お名前）</div>
-          <div class="cat-comment">幸せな毎日を送っています 🐾</div>
-        </div>
-      </div>
-    </div>
-    <p class="grad-note">※写真・お名前・コメントは順次更新します。最新情報は<a href="https://www.instagram.com/shah_neko_house/" target="_blank" rel="noopener">Instagram</a>でもご覧いただけます。</p>
+<div class="entry side" style="grid-template-columns: 3fr 2fr;">
+  <img src="IMG_0153.JPG" alt="道路沿いの桜満開">
+  <div class="caption-block">
+    <div class="caption-num">03</div>
+    <div class="caption-main">沈む陽を背に<br>桜が道を埋めた<br>この道の果てに<br>何があるのか</div>
+    <div class="caption-sub">ROADSIDE SAKURA — SUNSET</div>
   </div>
-</section>
+</div>
 
-<section id="rules" class="alt">
-  <div class="wrap rules">
-    <h2>ご利用ルール</h2>
-    <div class="h2sub">Rules</div>
-    <ul>
-      <li>小学生以下のご入店はスタッフへご確認ください</li>
-      <li>手指のアルコール消毒をお願いします</li>
-      <li>店内では靴下の着用をお願いします（靴下は店頭で販売しています）</li>
-      <li>酔った状態でのご入店はお断りしています</li>
-      <li>猫アレルギーのある方は、事前に医師へご相談ください</li>
-      <li>無理に抱っこしないでください</li>
-      <li>食事中・睡眠中の猫には触らないでください</li>
-      <li>猫を追いかけたり、独り占めしないでください</li>
-      <li>大きな声や急な動きは控えてください</li>
-      <li>許可のないおやつは与えないでください</li>
-      <li>引っかき・咬みつき等は自己責任となります</li>
-      <li>ペット同伴でのご入店はできません</li>
-      <li>写真撮影はフラッシュ・ライトの使用は禁止です</li>
-      <li>店内は禁煙です</li>
-      <li>飲食物の持ち込みはご遠慮ください</li>
-    </ul>
-    <p class="closing">猫たちが安心して過ごせる空間づくりに<br>ご理解とご協力をお願いいたします。</p>
+<div class="entry full">
+  <img src="IMG_0152.JPG" alt="港の夕焼け">
+</div>
+
+<div class="entry inset">
+  <img src="IMG_0151.JPG" alt="桜のトンネル">
+  <div class="caption-inline">
+    <div class="caption-main">提灯と海と桜のトンネル　石仏が静かに見守る</div>
+    <div class="caption-sub">SAKURA TUNNEL — LANTERNS &amp; SEA</div>
   </div>
-</section>
+</div>
 
-<section id="access">
-  <div class="wrap">
-    <h2>アクセス</h2>
-    <div class="h2sub">Access</div>
-    <div class="access-grid">
-      <div>
-        <table>
-          <tr><th>店名</th><td>シャー猫ハウス</td></tr>
-          <tr><th>住所</th><td>広島県尾道市美ノ郷町三成869-4</td></tr>
-          <tr><th>運営</th><td>NPO法人 ペットマナーおのみち</td></tr>
-          <tr><th>お問合せ</th><td>InstagramのDMにてお気軽にどうぞ</td></tr>
-        </table>
-        <div style="text-align: center;">
-          <a class="btn" href="https://www.instagram.com/shah_neko_house/" target="_blank" rel="noopener" style="margin-top: 18px;">Instagramを見る</a>
-        </div>
-      </div>
-      <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://maps.google.com/maps?q=%E5%BA%83%E5%B3%B6%E7%9C%8C%E5%B0%BE%E9%81%93%E5%B8%82%E7%BE%8E%E3%83%8E%E9%83%B7%E7%94%BA%E4%B8%89%E6%88%90869-4&output=embed"></iframe>
-    </div>
+<!-- SEASON 04 ── 初夏 田んぼ -->
+<div class="season">
+  <div class="season-num">04</div>
+  <div class="season-text">
+    <div class="label">EARLY SUMMER</div>
+    <div class="name">水を張った田に映る世界</div>
   </div>
-</section>
+</div>
 
-<footer>
-  <div class="fl">シャー猫ハウス</div>
-  広島県尾道市美ノ郷町三成869-4<br>
-  運営：NPO法人 ペットマナーおのみち<br>
-  <a href="https://www.instagram.com/petmanner.onomichi/" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">📷 ペットマナーおのみち Instagram</a><br><br>
-  &copy; 2026 Shah Neko House
-</footer>
+<div class="entry">
+  <img src="IMG_0149.JPG" alt="アオサギ">
+  <div class="caption-inline">
+    <div class="caption-main">アオサギが泥の上に立つ</div>
+    <div class="caption-sub">GREY HERON — RICE FIELD</div>
+  </div>
+</div>
+
+<div class="entry full">
+  <img src="IMG_0148.JPG" alt="水田に映る山と家">
+</div>
+
+<div class="entry full">
+  <img src="IMG_0150.JPG" alt="水田と夕焼け">
+  <div class="caption-inline" style="padding: .8rem 4vw 0;">
+    <div class="caption-main">茜の空が 田んぼの水に静かに沈む</div>
+    <div class="caption-sub">SUNSET — RICE PADDY REFLECTION</div>
+  </div>
+</div>
+
+<!-- SEASON 05 ── 港の夕暮れ -->
+<div class="season">
+  <div class="season-num">05</div>
+  <div class="season-text">
+    <div class="label">HARBOR DUSK</div>
+    <div class="name">港、燃える空</div>
+  </div>
+</div>
+
+<div class="entry full">
+  <img src="IMG_0147.JPG" alt="港の夕焼け">
+  <div class="caption-inline" style="padding: .8rem 4vw 0;">
+    <div class="caption-main">船が眠り　橋が赤く染まり　空が燃えた</div>
+    <div class="caption-sub">HARBOR SUNSET — MIHARA, HIROSHIMA</div>
+  </div>
+</div>
+
+<!-- COLOPHON -->
+<div class="colophon">
+  <div class="c-title">YUTAKA 2026</div>
+  <p>三原の情景 ― 春から夏へ ―</p>
+  <p>Photography &amp; Design : ギータ</p>
+  <p>Printed in Mihara, Hiroshima</p>
+</div>
+
+<script>
+  const targets = document.querySelectorAll('.season, .entry, .colophon');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  targets.forEach(t => io.observe(t));
+</script>
 </body>
 </html>
